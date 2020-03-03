@@ -17,7 +17,7 @@ namespace bravoTALENTS_Cucumber.PageObject
         [FindsBy(How = How.CssSelector, Using = ".job-creation-action__from-scratch")]
         public IWebElement btnCreateFromScratch { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "/html//app-root//jobs-page/job-creation/job-creation-form//form[@method='POST']//input[@placeholder='Ex: Business Analyst']")]
+        [FindsBy(How = How.CssSelector, Using = ".job-creation-form__label input")]
         public IWebElement txtJobTitle { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".select2.select2-container.select2-container--default")]
@@ -32,7 +32,7 @@ namespace bravoTALENTS_Cucumber.PageObject
         [FindsBy(How = How.CssSelector, Using = ".job-creation-form__location-item")]
         public IList<IWebElement> sltLocation { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "//app-root//jobs-page[@class='ng-star-inserted']/job-creation/job-creation-from-scratch//div[@class='job-creation-form__submit']/custom-button[2]/button[@class='button button--primary']")]
+        [FindsBy(How = How.CssSelector, Using = ".job-creation-form__submit custom-button:nth-of-type(2) [type]")]
         public IWebElement btnCreate { get; set; }
 
 
