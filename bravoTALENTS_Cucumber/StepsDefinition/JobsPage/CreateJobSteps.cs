@@ -16,65 +16,66 @@ namespace bravoTALENTS_Cucumber.StepsDefinition
     {
         private IWebDriver driver;
         private WebDriverWait wait;
+        private string jobTitle = "Video editor";
         public CreateJobSteps()
         {
             driver = MyDriver.driver;
-            wait = new WebDriverWait(MyDriver.driver, TimeSpan.FromSeconds(60));
+            wait = new WebDriverWait(MyDriver.driver, TimeSpan.FromSeconds(30));
         }
 
         [When(@"I click Create job button")]
         public void WhenIClickCreateJobButton()
         {
-            wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobPO.btnCreateJob));
-            BasePage.JobPO.btnCreateJob.Click();
+            wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobPO.createJobButton));
+            BasePage.JobPO.createJobButton.Click();
         }
 
         [When(@"I enter text into job title field")]
         public void WhenIEnterTextIntoJobTitleField()
         {
-            BasePage.JobPO.txtJobTitle.SendKeys("CTO (Chief Technology Officer)");
+            BasePage.JobPO.jobTitleTextBox.SendKeys(jobTitle);
             Thread.Sleep(500);
         }
 
         [When(@"I click on the Create from scratch button")]
         public void WhenIClickOnTheCreateFromScratchButton()
         {
-            BasePage.JobPO.btnCreateFromScratch.Click();
+            BasePage.JobPO.createFromScratchButton.Click();
         }
 
         [When(@"I select job category")]
         public void WhenISelectJobCategory()
         {
-            BasePage.JobPO.sltJobCategory[0].Click();
-            BasePage.JobPO.sltOption[1].Click();
+            BasePage.JobPO.selectDropdown[0].Click();
+            BasePage.JobPO.selectDropdownItem[1].Click();
         }
 
         [When(@"I select job type")]
         public void WhenISelectJobType()
         {
-            BasePage.JobPO.sltJobCategory[1].Click();
-            BasePage.JobPO.sltOption[1].Click();
+            BasePage.JobPO.selectDropdown[1].Click();
+            BasePage.JobPO.selectDropdownItem[1].Click();
         }
 
         [When(@"I select position level")]
         public void WhenISelectPositionLevel()
         {
-            BasePage.JobPO.sltJobCategory[2].Click();
-            BasePage.JobPO.sltOption[1].Click();
+            BasePage.JobPO.selectDropdown[2].Click();
+            BasePage.JobPO.selectDropdownItem[1].Click();
         }
 
         [When(@"I select location")]
         public void WhenISelectLocation()
         {
-            BasePage.JobPO.openSltLocation.Click();
-            BasePage.JobPO.sltLocation[0].Click();
+            BasePage.JobPO.locationDropdown.Click();
+            BasePage.JobPO.locationItem[0].Click();
             
         }
 
         [When(@"I click on create button")]
         public void WhenIClickOnCreateButton()
         {
-            BasePage.JobPO.btnCreate.Click();
+            BasePage.JobPO.createButton.Click();
         }
 
 
@@ -82,35 +83,126 @@ namespace bravoTALENTS_Cucumber.StepsDefinition
         public void ThenICreateNewJobSuccessful()
         {
             wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(".--editable.job-header__job-title-display.ng-star-inserted > div > div")));
-            Assert.AreEqual("CTO (Chief Technology Officer)", BasePage.JobPO.txtJobName.Text);
+            Assert.AreEqual(jobTitle, BasePage.JobPO.jobNameTextBox.Text);
         }
 
+
+        //Create job from template successful
         [When(@"I click on the job in the template list")]
         public void WhenIClickOnTheJobInTheTemplateList()
         {
-            wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobPO.listItemFromTemplates[0]));
-            BasePage.JobPO.listItemFromTemplates[0].Click();
+            Boolean isNoPreviousJobsFound = Utility.isElementPresent(By.CssSelector("div.jobs-from-templates > span.no-jobs-text"));
+            if (isNoPreviousJobsFound == true)
+            {
+                Assert.False(BasePage.JobPO.noPreviousJobsFoundText.Displayed, "No templates found");
+            }
+            else
+            {
+                wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobPO.listItemFromTemplates[0]));
+                BasePage.JobPO.listItemFromTemplates[0].Click();
+            }           
         }
 
         [When(@"I click on create and edit button")]
         public void WhenIClickOnCreateAndEditButton()
         {
-            wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobPO.btnCreateAndEdit));
-            BasePage.JobPO.btnCreateAndEdit.Click();
+            wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobPO.createAndEditButton));
+            BasePage.JobPO.createAndEditButton.Click();
         }
 
+
+        //Create job from previous jobs successful
+        [When(@"I click on the job in the previous jobs list")]
+        public void WhenIClickOnTheJobInThePreviousJobsList()
+        {
+            Boolean isNoPreviousJobsFound = Utility.isElementPresent(By.CssSelector("div.jobs-from-previous > span.no-jobs-text"));
+            if (isNoPreviousJobsFound == true)
+            {
+                Assert.False(BasePage.JobPO.noPreviousJobsFoundText.Displayed, "No previous jobs found");
+            }
+            else
+            {
+                wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobPO.listItemFromPreviousJobs[0]));
+                BasePage.JobPO.listItemFromPreviousJobs[0].Click();
+            }          
+        }
+
+
+        //Close the create job panel successful by using X icon
         [When(@"I click the X icon")]
         public void WhenIClickTheXIcon()
         {
-            wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobPO.btnClose));
-            BasePage.JobPO.btnClose.Click();
+            wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobPO.closeButtonInCreateJobPanel));
+            BasePage.JobPO.closeButtonInCreateJobPanel.Click();
         }
 
         [Then(@"The create job panel should closed")]
         public void ThenTheCreateJobPanelShouldClosed()
         {
-            ScenarioContext.Current.Pending();
+            IWebElement createJobPanel = driver.FindElement(By.CssSelector("job-creation-form > div.job-creation-card.job-creation-card--hide"));
+            Assert.IsFalse(createJobPanel.Displayed);
         }
+
+
+        //Close the create job manually panel successful by using X icon
+        [When(@"I click the X icon in the create job manually panel")]
+        public void WhenIClickTheXIconInTheCreateJobManuallyPanel()
+        {
+            wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobPO.closeButton));
+            BasePage.JobPO.closeButton.Click();
+        }
+
+
+        [Then(@"The create job manually panel should closed")]
+        public void ThenTheCreateJobManuallyPanelShouldClosed()
+        {
+            IWebElement createJobManuallyPanel = driver.FindElement(By.CssSelector("job-creation-from-scratch > div.job-creation-card.job-creation-card--hide"));
+            Assert.IsFalse(createJobManuallyPanel.Displayed);
+        }
+
+
+        //Close the create job and review job panel successful by using X icon
+        [When(@"I click the X icon in the create job and review job panel")]
+        public void WhenIClickTheXIconInTheCreateJobAndReviewJobPanel()
+        {
+            wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobPO.closeButtonInReivewPanel));
+            BasePage.JobPO.closeButtonInReivewPanel.Click();
+        }
+
+        [Then(@"The create job and review job panel should closed")]
+        public void ThenTheCreateJobAndReviewJobPanelShouldClosed()
+        {
+            IWebElement reivewJobPanel = driver.FindElement(By.CssSelector("job-creation-from-scratch > div.job-creation-card.job-creation-card--hide"));
+            Assert.IsFalse(reivewJobPanel.Displayed);
+        }
+
+        //Close the create job manually panel successful by using cancel button
+        [When(@"I click the cancel button in the create job manually panel")]
+        public void WhenIClickTheCancelButtonInTheCreateJobManuallyPanel()
+        {
+            wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobPO.cancelButtonInCreateJobPanel));
+            BasePage.JobPO.cancelButtonInCreateJobPanel.Click();
+        }
+
+        //Close the create job and review job panel successful by using cancel button
+        [When(@"I click the cancel button in the create job and review job panel")]
+        public void WhenIClickTheCancelButtonInTheCreateJobAndReviewJobPanel()
+        {
+            wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobPO.cancelButtonInReivewPanel));
+            BasePage.JobPO.cancelButtonInReivewPanel.Click();
+        }
+
+
+        //The data in review panel is changed when I click on another job in template list
+        [Then(@"The job title in list and preview panel is equal")]
+        public void ThenTheJobTitleInListAndPreviewPanelIsEqual()
+        {
+            Boolean flag = Utility.checkName(BasePage.JobPO.listItemFromTemplates, BasePage.JobPO.jobTitleInReivewPanel);
+            Assert.IsTrue(flag, "The job title in list and preview panel is not equal");
+        }
+
+
+
 
 
 

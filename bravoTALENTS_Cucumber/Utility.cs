@@ -21,5 +21,36 @@ namespace bravoTALENTS_Cucumber
             screenshot.SaveAsFile(localpath, ScreenshotImageFormat.Png);
             return localpath;
         }
+
+        public static Boolean isElementPresent(By locatorKey)
+        {
+            try
+            {
+                MyDriver.driver.FindElement(locatorKey);
+                return true;
+            }
+            catch (NoSuchElementException)
+            {
+                return false;
+            }
+        }
+
+        public static Boolean checkName (IList<IWebElement> list, IWebElement name)
+        {
+            Boolean flag = true;
+            for (int i = 0; i < list.Count; i++)
+            {
+                list[i].Click();
+                if (list[i].Text.Equals(name.Text))
+                {
+                    flag = true;
+                }
+                else
+                {
+                    flag = false;
+                }
+            }
+            return flag;
+        }
     }
 }

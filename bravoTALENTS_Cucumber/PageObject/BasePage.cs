@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium.Support.PageObjects;
+﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.PageObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,5 +27,7 @@ namespace bravoTALENTS_Cucumber.PageObject
         {
             get { return GetPage<JobPO>(); }
         }
+
+        
     }
 }
