@@ -2,6 +2,8 @@
 using AventStack.ExtentReports.Gherkin.Model;
 using AventStack.ExtentReports.Reporter;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
+using System;
 using System.Reflection;
 using TechTalk.SpecFlow;
 
@@ -18,7 +20,7 @@ namespace bravoTALENTS_Cucumber
         public static void InitializeReport()
         {
             //Initialize Extent report before test starts
-            var htmlReporter = new ExtentHtmlReporter(@"C:\Users\khoi.vo\source\repos\bravoTALENTS_Cucumber\bravoTALENTS_Cucumber\ExtentReport\ExtentReport.html");
+            var htmlReporter = new ExtentHtmlReporter(@"C:\Projects\Recruiter_bravoTALENTS\bravoTALENTS_Cucumber\ExtentReport\ExtentReport.html");
             htmlReporter.Configuration().Theme = AventStack.ExtentReports.Reporter.Configuration.Theme.Standard;
             //Attach report to reporter
             extent = new ExtentReports();
@@ -109,6 +111,7 @@ namespace bravoTALENTS_Cucumber
             //MyDriver.driver = new ChromeDriver(option);
             MyDriver.driver = new ChromeDriver();
             MyDriver.driver.Manage().Window.Maximize();
+            MyDriver.wait = new WebDriverWait(MyDriver.driver, TimeSpan.FromSeconds(30));
             //Extent report
             scenario = featureName.CreateNode<Scenario>(scenarioContext.ScenarioInfo.Title);
         }

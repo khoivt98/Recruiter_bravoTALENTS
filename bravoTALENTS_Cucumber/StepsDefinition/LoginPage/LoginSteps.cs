@@ -27,7 +27,7 @@ namespace bravoTALENTS_Cucumber.StepDefinition
         [Given(@"I login into bravoTALENTS")]
         public void GivenILoginIntoBravoTALENTS()
         {
-            BasePage.loginPO.Login("zoi004@mailinator.com", "Khoi@123");
+            BasePage.loginPO.Login("toantest@mailinator.com", "Toan844940");
             wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(".bravo-header__navigation-menu-btn-content-text")));
         }
 

@@ -8,7 +8,7 @@ namespace bravoTALENTS_Cucumber
 {
     class Program
     {
-        static void Main1(string[] args)
+        static void Main2(string[] args)
         {
         }
     }
