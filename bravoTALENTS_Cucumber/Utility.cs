@@ -16,7 +16,7 @@ namespace bravoTALENTS_Cucumber
             Screenshot screenshot = ts.GetScreenshot();
             //string pth = System.Reflection.Assembly.GetCallingAssembly().CodeBase;
             //string finalpth = pth.Substring(0, pth.LastIndexOf("bin")) + "ErrorScreenshots\\" + screenshotname + "_" + dateTakeScreenShot + ".png";
-            string finalpth = @"C:\Users\khoi.vo\source\repos\bravoTALENTS_Cucumber\bravoTALENTS_Cucumber\ExtentReport\ErrorScreenshots\ERROR_" + screenshotname + "_" + dateTakeScreenShot + ".png";
+            string finalpth = @"C:\Projects\Recruiter_bravoTALENTS\bravoTALENTS_Cucumber\ExtentReport\ErrorScreenshots\ERROR_" + screenshotname + "_" + dateTakeScreenShot + ".png";
             string localpath = new Uri(finalpth).LocalPath;
             screenshot.SaveAsFile(localpath, ScreenshotImageFormat.Png);
             return localpath;
