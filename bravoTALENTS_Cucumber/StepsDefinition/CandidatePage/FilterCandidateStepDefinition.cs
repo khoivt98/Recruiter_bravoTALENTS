@@ -13,7 +13,7 @@ namespace bravoTALENTS_Cucumber.StepsDefinition.CandidatePage
     public sealed class FilterCandidateStepDefinition
     {
         [Given(@"I click on the Followed menu")]
-        public void GivenIClickOnTheFollowedMenu()dgdfgfgfdgdfgfdgfddfdfg
+        public void GivenIClickOnTheFollowedMenu()
         {
             BasePage.CandidatePO.filterFollowedCandidate.Click();
             Thread.Sleep(2000);
