@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace bravoTALENTS_Cucumber
             Screenshot screenshot = ts.GetScreenshot();
             //string pth = System.Reflection.Assembly.GetCallingAssembly().CodeBase;
             //string finalpth = pth.Substring(0, pth.LastIndexOf("bin")) + "ErrorScreenshots\\" + screenshotname + "_" + dateTakeScreenShot + ".png";
-            string finalpth = @"C:\Projects\Recruiter_bravoTALENTS\bravoTALENTS_Cucumber\ExtentReport\ErrorScreenshots\ERROR_" + screenshotname + "_" + dateTakeScreenShot + ".png";
+            string finalpth = @"C:\Users\khoi.vo\source\Recruiter_bravoTALENTS\bravoTALENTS_Cucumber\ExtentReport\ErrorScreenshots\ERROR_" + screenshotname + "_" + dateTakeScreenShot + ".png";
             string localpath = new Uri(finalpth).LocalPath;
             screenshot.SaveAsFile(localpath, ScreenshotImageFormat.Png);
             return localpath;
@@ -35,7 +36,7 @@ namespace bravoTALENTS_Cucumber
             }
         }
 
-        public static Boolean checkName (IList<IWebElement> list, IWebElement name)
+        public static Boolean checkName(IList<IWebElement> list, IWebElement name)
         {
             Boolean flag = true;
             for (int i = 0; i < list.Count; i++)
@@ -51,6 +52,49 @@ namespace bravoTALENTS_Cucumber
                 }
             }
             return flag;
+        }
+
+        public static int getTotalItemInList(IList<IWebElement> list, IWebDriver driver)
+        {
+            var count = 0;
+            for (int i = 0; i < list.Count(); i += list.Count() - (i + 1))
+            {
+                Actions actions = new Actions(driver);
+                actions.MoveToElement(list[i]);
+                actions.Perform();
+                if (i + 1 == list.Count())
+                {
+                    count = i + 1;
+                    break;
+                }                
+            }
+            return count;
+        }
+
+        public static int getTotalItemWithStatusInList(IList<IWebElement> list, IWebDriver driver, string status)
+        {
+            int count = 0;
+            for (int i = 0; i < list.Count(); i++)
+            {
+                if (list[i].Text.Equals(status))
+                {
+                    count = i + 1;
+                }
+            }
+            return count;
+        }
+
+        public static int getTotalItemWithColorIconInList(IList<IWebElement> list, IWebDriver driver, string color)
+        {
+            int count = 0;
+            for (int i = 0; i < list.Count(); i++)
+            {
+                if (list[i].GetAttribute("style").Equals(color))
+                {
+                    count = i + 1;
+                }
+            }
+            return count;
         }
     }
 }
