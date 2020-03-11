@@ -14,19 +14,12 @@ namespace bravoTALENTS_Cucumber.StepsDefinition
     [Binding]
     public sealed class CreateJobSteps
     {
-        private IWebDriver driver;
-        private WebDriverWait wait;
         private string jobTitle = "Video editor";
-        public CreateJobSteps()
-        {
-            driver = MyDriver.driver;
-            wait = new WebDriverWait(MyDriver.driver, TimeSpan.FromSeconds(30));
-        }
 
         [When(@"I click Create job button")]
         public void WhenIClickCreateJobButton()
         {
-            wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobPO.createJobButton));
+            MyDriver.wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobPO.createJobButton));
             BasePage.JobPO.createJobButton.Click();
         }
 
@@ -46,21 +39,21 @@ namespace bravoTALENTS_Cucumber.StepsDefinition
         [When(@"I select job category")]
         public void WhenISelectJobCategory()
         {
-            BasePage.JobPO.selectDropdown[0].Click();
+            BasePage.JobPO.openJobCategoryDropdown.Click();
             BasePage.JobPO.selectDropdownItem[1].Click();
         }
 
         [When(@"I select job type")]
         public void WhenISelectJobType()
         {
-            BasePage.JobPO.selectDropdown[1].Click();
+            BasePage.JobPO.openJobTypeDropdown.Click();
             BasePage.JobPO.selectDropdownItem[1].Click();
         }
 
         [When(@"I select position level")]
         public void WhenISelectPositionLevel()
         {
-            BasePage.JobPO.selectDropdown[2].Click();
+            BasePage.JobPO.openPositionLevelDropdown.Click();
             BasePage.JobPO.selectDropdownItem[1].Click();
         }
 
@@ -82,7 +75,7 @@ namespace bravoTALENTS_Cucumber.StepsDefinition
         [Then(@"I create new job successful")]
         public void ThenICreateNewJobSuccessful()
         {
-            wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(".--editable.job-header__job-title-display.ng-star-inserted > div > div")));
+            MyDriver.wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(".--editable.job-header__job-title-display.ng-star-inserted > div > div")));
             Assert.AreEqual(jobTitle, BasePage.JobPO.jobNameTextBox.Text);
         }
 
@@ -98,7 +91,7 @@ namespace bravoTALENTS_Cucumber.StepsDefinition
             }
             else
             {
-                wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobPO.listItemFromTemplates[0]));
+                MyDriver.wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobPO.listItemFromTemplates[0]));
                 BasePage.JobPO.listItemFromTemplates[0].Click();
             }           
         }
@@ -106,7 +99,7 @@ namespace bravoTALENTS_Cucumber.StepsDefinition
         [When(@"I click on create and edit button")]
         public void WhenIClickOnCreateAndEditButton()
         {
-            wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobPO.createAndEditButton));
+            MyDriver.wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobPO.createAndEditButton));
             BasePage.JobPO.createAndEditButton.Click();
         }
 
@@ -122,7 +115,7 @@ namespace bravoTALENTS_Cucumber.StepsDefinition
             }
             else
             {
-                wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobPO.listItemFromPreviousJobs[0]));
+                MyDriver.wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobPO.listItemFromPreviousJobs[0]));
                 BasePage.JobPO.listItemFromPreviousJobs[0].Click();
             }          
         }
@@ -132,14 +125,14 @@ namespace bravoTALENTS_Cucumber.StepsDefinition
         [When(@"I click the X icon")]
         public void WhenIClickTheXIcon()
         {
-            wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobPO.closeButtonInCreateJobPanel));
+            MyDriver.wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobPO.closeButtonInCreateJobPanel));
             BasePage.JobPO.closeButtonInCreateJobPanel.Click();
         }
 
         [Then(@"The create job panel should closed")]
         public void ThenTheCreateJobPanelShouldClosed()
         {
-            IWebElement createJobPanel = driver.FindElement(By.CssSelector("job-creation-form > div.job-creation-card.job-creation-card--hide"));
+            IWebElement createJobPanel = MyDriver.driver.FindElement(By.CssSelector("job-creation-form > div.job-creation-card.job-creation-card--hide"));
             Assert.IsFalse(createJobPanel.Displayed);
         }
 
@@ -148,7 +141,7 @@ namespace bravoTALENTS_Cucumber.StepsDefinition
         [When(@"I click the X icon in the create job manually panel")]
         public void WhenIClickTheXIconInTheCreateJobManuallyPanel()
         {
-            wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobPO.closeButton));
+            MyDriver.wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobPO.closeButton));
             BasePage.JobPO.closeButton.Click();
         }
 
@@ -156,7 +149,7 @@ namespace bravoTALENTS_Cucumber.StepsDefinition
         [Then(@"The create job manually panel should closed")]
         public void ThenTheCreateJobManuallyPanelShouldClosed()
         {
-            IWebElement createJobManuallyPanel = driver.FindElement(By.CssSelector("job-creation-from-scratch > div.job-creation-card.job-creation-card--hide"));
+            IWebElement createJobManuallyPanel = MyDriver.driver.FindElement(By.CssSelector("job-creation-from-scratch > div.job-creation-card.job-creation-card--hide"));
             Assert.IsFalse(createJobManuallyPanel.Displayed);
         }
 
@@ -165,14 +158,14 @@ namespace bravoTALENTS_Cucumber.StepsDefinition
         [When(@"I click the X icon in the create job and review job panel")]
         public void WhenIClickTheXIconInTheCreateJobAndReviewJobPanel()
         {
-            wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobPO.closeButtonInReivewPanel));
+            MyDriver.wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobPO.closeButtonInReivewPanel));
             BasePage.JobPO.closeButtonInReivewPanel.Click();
         }
 
         [Then(@"The create job and review job panel should closed")]
         public void ThenTheCreateJobAndReviewJobPanelShouldClosed()
         {
-            IWebElement reivewJobPanel = driver.FindElement(By.CssSelector("job-creation-from-scratch > div.job-creation-card.job-creation-card--hide"));
+            IWebElement reivewJobPanel = MyDriver.driver.FindElement(By.CssSelector("job-creation-from-scratch > div.job-creation-card.job-creation-card--hide"));
             Assert.IsFalse(reivewJobPanel.Displayed);
         }
 
@@ -180,7 +173,7 @@ namespace bravoTALENTS_Cucumber.StepsDefinition
         [When(@"I click the cancel button in the create job manually panel")]
         public void WhenIClickTheCancelButtonInTheCreateJobManuallyPanel()
         {
-            wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobPO.cancelButtonInCreateJobPanel));
+            MyDriver.wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobPO.cancelButtonInCreateJobPanel));
             BasePage.JobPO.cancelButtonInCreateJobPanel.Click();
         }
 
@@ -188,7 +181,7 @@ namespace bravoTALENTS_Cucumber.StepsDefinition
         [When(@"I click the cancel button in the create job and review job panel")]
         public void WhenIClickTheCancelButtonInTheCreateJobAndReviewJobPanel()
         {
-            wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobPO.cancelButtonInReivewPanel));
+            MyDriver.wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobPO.cancelButtonInReivewPanel));
             BasePage.JobPO.cancelButtonInReivewPanel.Click();
         }
 

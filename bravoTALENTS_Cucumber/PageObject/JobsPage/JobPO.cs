@@ -36,8 +36,14 @@ namespace bravoTALENTS_Cucumber.PageObject
         public IWebElement noTemplatesFoundText { get; set; }
 
         //Create Job from scratch panel    
-        [FindsBy(How = How.CssSelector, Using = ".select2.select2-container.select2-container--default")]
-        public IList<IWebElement> selectDropdown { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".job-creation-form__item:nth-child(2) .select2-container")]
+        public IWebElement openJobCategoryDropdown { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = ".job-creation-form__item:nth-child(3) .select2-container")]
+        public IWebElement openJobTypeDropdown { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = ".job-creation-form__item:nth-child(4) .select2-container")]
+        public IWebElement openPositionLevelDropdown { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".select2-results__option")]
         public IList<IWebElement> selectDropdownItem { get; set; }
