@@ -20,7 +20,7 @@ namespace bravoTALENTS_Cucumber
         public static void InitializeReport()
         {
             //Initialize Extent report before test starts
-            var htmlReporter = new ExtentHtmlReporter(@".\bravoTALENTS_Cucumber\ExtentReport\ExtentReport.html");
+            var htmlReporter = new ExtentHtmlReporter(@"C:\Users\khoi.vo\source\Recruiter_bravoTALENTS\bravoTALENTS_Cucumber\ExtentReport\ExtentReport.html");
             htmlReporter.Configuration().Theme = AventStack.ExtentReports.Reporter.Configuration.Theme.Standard;
             //Attach report to reporter
             extent = new ExtentReports();

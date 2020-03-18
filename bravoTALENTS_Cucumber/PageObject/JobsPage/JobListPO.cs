@@ -21,6 +21,9 @@ namespace bravoTALENTS_Cucumber.PageObject.JobsPage
         [FindsBy(How = How.CssSelector, Using = ".job-content:nth-child(1) .checkbox-label")]
         public IWebElement firstJobCheckbox { get; set; }
 
+        [FindsBy(How = How.CssSelector, Using = ".job-content:nth-child(1)")]
+        public IWebElement theFirstJob { get; set; }
+
         [FindsBy(How = How.CssSelector, Using = "tr:nth-of-type(1) > td > .sprite-filled-star")]
         public IWebElement firstStarIcon { get; set; }
 

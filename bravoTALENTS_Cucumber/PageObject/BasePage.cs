@@ -1,5 +1,6 @@
 ﻿using bravoTALENTS_Cucumber.PageObject.CandidatePage;
 using bravoTALENTS_Cucumber.PageObject.JobsPage;
+using bravoTALENTS_Cucumber.PageObject.TemplatePage;
 using OpenQA.Selenium.Support.PageObjects;
 using System;
 using System.Collections.Generic;
@@ -34,9 +35,19 @@ namespace bravoTALENTS_Cucumber.PageObject
             get { return GetPage<JobListPO>(); }
         }
 
+        public static JobDetailPO JobDetailPO
+        {
+            get { return GetPage<JobDetailPO>(); }
+        }
+
         public static CandidatePO CandidatePO
         {
             get { return GetPage<CandidatePO>(); }
+        }
+
+        public static TemplateDetailPO TemplateDetailPO
+        {
+            get { return GetPage<TemplateDetailPO>(); }
         }
     }
 }

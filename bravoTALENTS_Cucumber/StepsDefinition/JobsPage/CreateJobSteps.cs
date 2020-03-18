@@ -14,7 +14,8 @@ namespace bravoTALENTS_Cucumber.StepsDefinition
     [Binding]
     public sealed class CreateJobSteps
     {
-        private string jobTitle = "Video editor";
+        string jobTitle = "Video editor";
+        string jobTitleInReivewPanel;
 
         [When(@"I click Create job button")]
         public void WhenIClickCreateJobButton()
@@ -100,7 +101,15 @@ namespace bravoTALENTS_Cucumber.StepsDefinition
         public void WhenIClickOnCreateAndEditButton()
         {
             MyDriver.wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobPO.createAndEditButton));
+            jobTitleInReivewPanel = BasePage.JobPO.jobTitleInReivewPanel.Text;
             BasePage.JobPO.createAndEditButton.Click();
+        }
+
+        [Then(@"I create new job from library successful")]
+        public void ThenICreateNewJobFromLibrarySuccessful()
+        {
+            MyDriver.wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobDetailPO.theJobTitle));
+            Assert.AreEqual(jobTitleInReivewPanel, BasePage.JobDetailPO.theJobTitle.Text);
         }
 
 
@@ -116,7 +125,7 @@ namespace bravoTALENTS_Cucumber.StepsDefinition
             else
             {
                 MyDriver.wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobPO.listItemFromPreviousJobs[0]));
-                BasePage.JobPO.listItemFromPreviousJobs[0].Click();
+                BasePage.JobPO.listItemFromPreviousJobs[0].Click();                             
             }          
         }
 

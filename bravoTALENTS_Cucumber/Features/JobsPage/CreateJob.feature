@@ -24,7 +24,7 @@ Scenario: Create job from templates successful
 	And I enter text into job title field
 	And I click on the job in the template list
 	And I click on create and edit button
-	Then I create new job successful
+	Then I create new job from library successful 
 
 Scenario: Create job from previous jobs successful
 	Given I navigate to application
@@ -33,7 +33,7 @@ Scenario: Create job from previous jobs successful
 	And I enter text into job title field
 	And I click on the job in the previous jobs list
 	And I click on create and edit button
-	Then I create new job successful
+	Then I create new job from library successful 
 
 Scenario: Close the create job panel successful by using X icon
 	Given I navigate to application
