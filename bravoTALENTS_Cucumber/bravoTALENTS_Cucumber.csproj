@@ -178,6 +178,8 @@
     <Compile Include="Hooks.cs" />
     <Compile Include="MyDriver.cs" />
     <Compile Include="PageObject\BasePage.cs" />
+    <Compile Include="PageObject\CandidatePage\CandidateCardPO.cs" />
+    <Compile Include="PageObject\CandidatePage\CandidateDetailPO.cs" />
     <Compile Include="PageObject\CandidatePage\CandidatePO.cs" />
     <Compile Include="PageObject\JobsPage\JobDetailPO.cs" />
     <Compile Include="PageObject\JobsPage\JobListPO.cs" />
@@ -186,10 +188,20 @@
     <Compile Include="PageObject\TemplatePage\TemplateDetailPO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StepsDefinition\CandidatePage\CreateCandidateStepDefinition.cs" />
-    <Compile Include="StepsDefinition\CandidatePage\FilterCandidateStepDefinition.cs" />
-    <Compile Include="StepsDefinition\CandidatePage\FollowCandidateStepDefinition.cs" />
-    <Compile Include="StepsDefinition\CandidatePage\SearchCandidateStepDefinition.cs" />
+    <Compile Include="StepsDefinition\CandidatePage\CandidateDetail\ActivityStepDefinition.cs" />
+    <Compile Include="StepsDefinition\CandidatePage\CandidateCard\AddTagIntoCandidateStepDefinition.cs" />
+    <Compile Include="StepsDefinition\CandidatePage\CandidateCard\CandidateCardStepDefinition.cs" />
+    <Compile Include="StepsDefinition\CandidatePage\CandidateCard\ChangeStatusCandidateStepDefinition.cs" />
+    <Compile Include="StepsDefinition\CandidatePage\CandidateCard\RejectCandidateStepDefinition.cs" />
+    <Compile Include="StepsDefinition\CandidatePage\CandidateDetail\CreateOfferStepDefinition.cs" />
+    <Compile Include="StepsDefinition\CandidatePage\CandidateDetail\ScheduleInterviewStepDefinition.cs" />
+    <Compile Include="StepsDefinition\CandidatePage\CandidateCard\UploadAttachmentStepDefinition.cs" />
+    <Compile Include="StepsDefinition\CandidatePage\CandidateCard\ViewJobCandidateStepDefinition.cs" />
+    <Compile Include="StepsDefinition\CandidatePage\CandidateDetail\CandidateDetailStepDefinition.cs" />
+    <Compile Include="StepsDefinition\CandidatePage\CandidateList\CreateCandidateStepDefinition.cs" />
+    <Compile Include="StepsDefinition\CandidatePage\CandidateList\FilterCandidateStepDefinition.cs" />
+    <Compile Include="StepsDefinition\CandidatePage\CandidateList\FollowCandidateStepDefinition.cs" />
+    <Compile Include="StepsDefinition\CandidatePage\CandidateList\SearchCandidateStepDefinition.cs" />
     <Compile Include="StepsDefinition\JobsPage\CreateJobSteps.cs" />
     <Compile Include="StepsDefinition\JobsPage\FilterJobSteps.cs" />
     <Compile Include="StepsDefinition\JobsPage\FollowAndUnfollowJobSteps.cs" />
@@ -201,11 +213,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
+    <None Include="Features\JobsPage\CandidateList.feature" />
+    <None Include="Features\JobsPage\FilterCandidate.feature" />
       <SubType>Designer</SubType>
     </None>
     <None Include="Features\JobsPage\JobAd.feature" />
     <None Include="Features\JobsPage\JobList.feature" />
     <None Include="Features\JobsPage\JobOverview.feature" />
+    <None Include="Features\CandidatesPage\ActivityCandidate.feature" />
+    <None Include="Features\CandidatesPage\CandidateCard.feature" />
+    <None Include="Features\CandidatesPage\CVCandidate.feature" />
+    <None Include="Features\CandidatesPage\CandidateList.feature" />
+    <None Include="Features\CandidatesPage\FilterCandidate.feature" />
+    <None Include="Features\CandidatesPage\InterviewCandidate.feature" />
+    <None Include="Features\CandidatesPage\OfferCandidate.feature" />
     <None Include="Features\LoginPage\Login.feature" />
     <None Include="license" />
     <None Include="packages.config" />

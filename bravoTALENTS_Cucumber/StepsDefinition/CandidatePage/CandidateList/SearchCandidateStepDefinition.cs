@@ -34,6 +34,21 @@ namespace bravoTALENTS_Cucumber.StepsDefinition.CandidatePage
             Assert.AreEqual("tony van", BasePage.CandidatePO.firstCandidateName.Text);
         }
 
+        [Given(@"I click into the suggestion search result")]
+        public void GivenIClickIntoTheSuggestionSearchResult()
+        {
+            //Wait for the suggestion list
+            MyDriver.wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(".search-result__candidate-list")));
+            BasePage.CandidatePO.firstCandidateInSuggestionList.Click();
+        }
+
+        [Then(@"the candidate card of the candidate should be displayed")]
+        public void ThenTheCandidateCardOfTheCandidateShouldBeDisplayed()
+        {
+            //Wait for the candidate card
+            MyDriver.wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(".candidate-card")));
+            Assert.AreEqual("tony van", BasePage.CandidatePO.candidateNameInCandidateCard.Text);
+        }
 
     }
 }

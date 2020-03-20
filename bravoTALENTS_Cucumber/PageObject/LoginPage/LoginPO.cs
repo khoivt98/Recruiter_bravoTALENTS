@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace bravoTALENTS_Cucumber.PageObject
 
         public void Login(string email, string password)
         {
+            MyDriver.wait.Until(ExpectedConditions.ElementIsVisible(By.Id("Email")));
             txtEmail.SendKeys(email);
             txtPassword.SendKeys(password);
             btnSignin.Click();

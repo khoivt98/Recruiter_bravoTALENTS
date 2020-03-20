@@ -9,6 +9,7 @@ namespace bravoTALENTS_Cucumber.PageObject.CandidatePage
 {
     class CandidatePO
     {
+        //Menu Candidate
         [FindsBy(How = How.ClassName, Using = "bravo-menu__btn-content")]
         public IWebElement dropdownMenu { get; set; }
 
@@ -37,6 +38,22 @@ namespace bravoTALENTS_Cucumber.PageObject.CandidatePage
         [FindsBy(How = How.XPath, Using = "//button[contains(.,'Save')]")]
         public IWebElement btnSaveCandidate { get; set; }
 
+        //Import candidate file 
+        [FindsBy(How = How.XPath, Using = "//button[contains(.,'+ Import candidates')]")]
+        public IWebElement btnImportCandidate { get; set; }
+
+        [FindsBy(How = How.Id, Using = "file")]
+        public IWebElement fieldUploadFile { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = ".candidate-import__input-radio:nth-child(1)")]
+        public IWebElement optionSkipCandidate { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = ".candidate-import__button-container .button--primary")]
+        public IWebElement btnImport { get; set; } 
+
+        [FindsBy(How = How.CssSelector, Using = ".alert-success")]
+        public IWebElement alertSuccessMSG { get; set; }
+
         //Add an application into the candidate
         [FindsBy(How = How.CssSelector, Using = ".sprite-assign")]
         public IWebElement iconAddApplication { get; set; }
@@ -51,7 +68,10 @@ namespace bravoTALENTS_Cucumber.PageObject.CandidatePage
         public IWebElement btnAddApplication { get; set; }
 
         //Candidate Attribute
-        [FindsBy(How = How.CssSelector, Using = ".candidate-content:nth-child(1) .candidate-content__full-name")]
+        [FindsBy(How = How.CssSelector, Using = ".candidate-content:nth-child(1)")]
+        public IWebElement firstCandidateRow { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = ".candidate-content:nth-child(1) td:nth-child(4) div")]
         public IWebElement firstCandidateName { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".candidate-content:nth-child(1) .candidate-table__body__job-section")]
@@ -59,6 +79,9 @@ namespace bravoTALENTS_Cucumber.PageObject.CandidatePage
 
         [FindsBy(How = How.CssSelector, Using = ".candidate-content:nth-child(1) .checkbox-label")]
         public IWebElement firstCandidateCheckbox { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = ".candidate-content:nth-child(1) td:nth-child(6)")]
+        public IWebElement firstCandidateAppliedDate { get; set; }
 
         //Follow candidate
         [FindsBy(How = How.CssSelector, Using = ".sprite-faded-star")]
@@ -76,6 +99,15 @@ namespace bravoTALENTS_Cucumber.PageObject.CandidatePage
 
         [FindsBy(How = How.CssSelector, Using = ".navigation-search__submit-button")]
         public IWebElement iconSearchCandidate { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = ".search-result__candidate-list")]
+        public IWebElement suggestionListSearchResult { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = ".search-result__candidate-list-item:nth-child(1)")]
+        public IWebElement firstCandidateInSuggestionList { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = ".candidate-card__info .candidate-card__name")]
+        public IWebElement candidateNameInCandidateCard { get; set; }
 
         //Filter followed candidate
         [FindsBy(How = How.XPath, Using = "//span[contains(.,'Followed')]")]
