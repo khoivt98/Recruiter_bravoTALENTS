@@ -13,6 +13,14 @@ Scenario: Search the candidate successfully
 	And I click on the search icon
 	Then the candidate list will display the search result
 
+Scenario: Open the candidate card when clicking on search result
+	Given I navigate to application
+	And I login into bravoTALENTS
+	And I navigate to Candidate screen
+	And I input tony van into the search box
+	And I click into the suggestion search result
+	Then the candidate card of the candidate should be displayed
+
 Scenario: Filter candidate with Followed
 	Given I navigate to application
 	And I login into bravoTALENTS

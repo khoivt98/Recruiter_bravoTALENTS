@@ -60,5 +60,14 @@ Examples:
 | FirstName | LastName  |
 | e2e       | candidate |
 
+Scenario: Import candidate file successfully
+	Given I navigate to application
+	And I login into bravoTALENTS
+	And I navigate to Candidate screen
+	And I change candidate mode to All
+	And I click into the Import Candidate
+	And I import the CSV file from my computer
+	Then the candidates from the file should be imported successfully
+
 
 

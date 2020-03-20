@@ -101,6 +101,12 @@ namespace bravoTALENTS_Cucumber
                 else if (stepType == "Then")
                     scenario.CreateNode<Then>(ScenarioStepContext.Current.StepInfo.Text).Error("Binding Error");
             }
+            //else if(TestResult.ToString() == "OK")
+            //{
+            //    string screenshotpth = Utility.getScreenshot(MyDriver.driver, ScenarioStepContext.Current.StepInfo.Text);           
+            //     if (stepType == "Then")
+            //        scenario.CreateNode<Then>(ScenarioStepContext.Current.StepInfo.Text).AddScreenCaptureFromPath(screenshotpth);
+            //}
         }
 
         [BeforeScenario]
@@ -111,7 +117,7 @@ namespace bravoTALENTS_Cucumber
             //MyDriver.driver = new ChromeDriver(option);
             MyDriver.driver = new ChromeDriver();
             MyDriver.driver.Manage().Window.Maximize();
-            MyDriver.wait = new WebDriverWait(MyDriver.driver, TimeSpan.FromSeconds(30));
+            MyDriver.wait = new WebDriverWait(MyDriver.driver, TimeSpan.FromSeconds(60));
             //Extent report
             scenario = featureName.CreateNode<Scenario>(scenarioContext.ScenarioInfo.Title);
         }

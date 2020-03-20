@@ -1,5 +1,9 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
+<<<<<<< HEAD
+=======
+using OpenQA.Selenium.Support.UI;
+>>>>>>> bb090ac... complete test script for Candidate
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,6 +58,7 @@ namespace bravoTALENTS_Cucumber
             return flag;
         }
 
+<<<<<<< HEAD
         public static int getTotalItemInList(IList<IWebElement> list, IWebDriver driver)
         {
             var count = 0;
@@ -95,6 +100,18 @@ namespace bravoTALENTS_Cucumber
                 }
             }
             return count;
+=======
+        public static void selectOptionFromDropdown(IWebElement element, string title)
+        {
+            SelectElement dropdownElement = new SelectElement(element);
+            dropdownElement.SelectByText(title);
+        }
+
+        public static void moveToElement(IWebElement element)
+        {
+            Actions action = new Actions(MyDriver.driver);
+            action.MoveToElement(element).Perform();
+>>>>>>> bb090ac... complete test script for Candidate
         }
     }
 }
