@@ -45,11 +45,11 @@ namespace bravoTALENTS_Cucumber.PageObject
             get { return GetPage<CandidatePO>(); }
         }
 
-<<<<<<< HEAD
         public static TemplateDetailPO TemplateDetailPO
         {
             get { return GetPage<TemplateDetailPO>(); }
-=======
+        }
+
         public static CandidateCardPO CandidateCardPO
         {
             get { return GetPage<CandidateCardPO>(); }
@@ -58,7 +58,6 @@ namespace bravoTALENTS_Cucumber.PageObject
         public static CandidateDetailPO CandidateDetailPO
         {
             get { return GetPage<CandidateDetailPO>(); }
->>>>>>> bb090ac... complete test script for Candidate
         }
     }
 }

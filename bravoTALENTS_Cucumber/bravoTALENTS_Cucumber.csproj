@@ -212,11 +212,7 @@
     <Compile Include="Utility.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config">
-    <None Include="Features\JobsPage\CandidateList.feature" />
-    <None Include="Features\JobsPage\FilterCandidate.feature" />
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="App.config" />
     <None Include="Features\JobsPage\JobAd.feature" />
     <None Include="Features\JobsPage\JobList.feature" />
     <None Include="Features\JobsPage\JobOverview.feature" />

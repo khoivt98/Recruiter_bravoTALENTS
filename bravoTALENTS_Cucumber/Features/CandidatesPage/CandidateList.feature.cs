@@ -312,8 +312,6 @@ this.ScenarioInitialize(scenarioInfo);
             }
             this.ScenarioCleanup();
         }
-<<<<<<< HEAD
-=======
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Import candidate file successfully")]
@@ -365,7 +363,6 @@ this.ScenarioInitialize(scenarioInfo);
             }
             this.ScenarioCleanup();
         }
->>>>>>> bb090ac... complete test script for Candidate
     }
 }
 #pragma warning restore

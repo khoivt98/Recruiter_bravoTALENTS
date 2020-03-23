@@ -1,9 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
-<<<<<<< HEAD
-=======
 using OpenQA.Selenium.Support.UI;
->>>>>>> bb090ac... complete test script for Candidate
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +18,7 @@ namespace bravoTALENTS_Cucumber
             Screenshot screenshot = ts.GetScreenshot();
             //string pth = System.Reflection.Assembly.GetCallingAssembly().CodeBase;
             //string finalpth = pth.Substring(0, pth.LastIndexOf("bin")) + "ErrorScreenshots\\" + screenshotname + "_" + dateTakeScreenShot + ".png";
-            string finalpth = @"C:\Users\khoi.vo\source\Recruiter_bravoTALENTS\bravoTALENTS_Cucumber\ExtentReport\ErrorScreenshots\ERROR_" + screenshotname + "_" + dateTakeScreenShot + ".png";
+            string finalpth = @"C:\Projects\Recruiter_bravoTALENTS\bravoTALENTS_Cucumber\ExtentReport\ErrorScreenshots\ERROR_" + screenshotname + "_" + dateTakeScreenShot + ".png";
             string localpath = new Uri(finalpth).LocalPath;
             screenshot.SaveAsFile(localpath, ScreenshotImageFormat.Png);
             return localpath;
@@ -58,7 +55,6 @@ namespace bravoTALENTS_Cucumber
             return flag;
         }
 
-<<<<<<< HEAD
         public static int getTotalItemInList(IList<IWebElement> list, IWebDriver driver)
         {
             var count = 0;
@@ -100,7 +96,8 @@ namespace bravoTALENTS_Cucumber
                 }
             }
             return count;
-=======
+        }
+
         public static void selectOptionFromDropdown(IWebElement element, string title)
         {
             SelectElement dropdownElement = new SelectElement(element);
@@ -111,7 +108,6 @@ namespace bravoTALENTS_Cucumber
         {
             Actions action = new Actions(MyDriver.driver);
             action.MoveToElement(element).Perform();
->>>>>>> bb090ac... complete test script for Candidate
         }
     }
 }
