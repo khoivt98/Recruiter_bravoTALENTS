@@ -190,11 +190,19 @@
     <Compile Include="StepsDefinition\CandidatePage\FilterCandidateStepDefinition.cs" />
     <Compile Include="StepsDefinition\CandidatePage\FollowCandidateStepDefinition.cs" />
     <Compile Include="StepsDefinition\CandidatePage\SearchCandidateStepDefinition.cs" />
+    <Compile Include="StepsDefinition\JobsPage\CloseJobSteps.cs" />
     <Compile Include="StepsDefinition\JobsPage\CreateJobSteps.cs" />
+    <Compile Include="StepsDefinition\JobsPage\EditApplyBeforeDateSteps.cs" />
+    <Compile Include="StepsDefinition\JobsPage\EditJobAdInfoSteps.cs" />
     <Compile Include="StepsDefinition\JobsPage\FilterJobSteps.cs" />
+    <Compile Include="StepsDefinition\JobsPage\FinishJobSteps.cs" />
     <Compile Include="StepsDefinition\JobsPage\FollowAndUnfollowJobSteps.cs" />
     <Compile Include="StepsDefinition\JobsPage\JobOverviewSteps.cs" />
     <Compile Include="StepsDefinition\JobsPage\ModifyJobDescriptionSteps.cs" />
+    <Compile Include="StepsDefinition\JobsPage\PublishJobOnJobPortalSteps.cs" />
+    <Compile Include="StepsDefinition\JobsPage\RepublishJobAfterCloseJobSteps.cs" />
+    <Compile Include="StepsDefinition\JobsPage\RepublishobAfterEditJobDescriptionSteps.cs" />
+    <Compile Include="StepsDefinition\JobsPage\RevertJobDiscriptionSteps.cs" />
     <Compile Include="StepsDefinition\JobsPage\SaveJobAsTemplateSteps.cs" />
     <Compile Include="StepsDefinition\LoginPage\LoginSteps.cs" />
     <Compile Include="Utility.cs" />
@@ -206,6 +214,7 @@
     <None Include="Features\JobsPage\JobAd.feature" />
     <None Include="Features\JobsPage\JobList.feature" />
     <None Include="Features\JobsPage\JobOverview.feature" />
+    <None Include="Features\JobsPage\MainFlow.feature" />
     <None Include="Features\LoginPage\Login.feature" />
     <None Include="license" />
     <None Include="packages.config" />
