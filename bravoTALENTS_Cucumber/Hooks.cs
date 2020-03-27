@@ -2,6 +2,7 @@
 using AventStack.ExtentReports.Gherkin.Model;
 using AventStack.ExtentReports.Reporter;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Reflection;
@@ -112,6 +113,7 @@ namespace bravoTALENTS_Cucumber
             MyDriver.driver = new ChromeDriver();
             MyDriver.driver.Manage().Window.Maximize();
             MyDriver.wait = new WebDriverWait(MyDriver.driver, TimeSpan.FromSeconds(30));
+            MyDriver.actions = new Actions(MyDriver.driver);
             //Extent report
             scenario = featureName.CreateNode<Scenario>(scenarioContext.ScenarioInfo.Title);
         }

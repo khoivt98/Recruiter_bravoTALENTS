@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -66,7 +67,7 @@ namespace bravoTALENTS_Cucumber
                 {
                     count = i + 1;
                     break;
-                }                
+                }
             }
             return count;
         }
@@ -95,6 +96,27 @@ namespace bravoTALENTS_Cucumber
                 }
             }
             return count;
+        }
+
+        public static void clickOnHiddenInput(string elementType, string elementValue)
+        {
+            var executor = MyDriver.driver as IJavaScriptExecutor;
+            executor.ExecuteScript("document.getElementBy" + elementType + "('" + elementValue + "').click();");
+        }
+
+        public static void switchingToNewTabUsingid(IWebDriver driver, WebDriverWait wait, String id, String oldTab)
+        {
+            wait.Until(ExpectedConditions.ElementToBeClickable(By.Id(id)));
+            driver.FindElement(By.Id(id)).Click();
+            List<String> newTab = new List<String>(driver.WindowHandles);
+            newTab.Remove(oldTab);
+            driver.SwitchTo().Window(newTab[0]);
+        }
+
+        public static void comingBackToOldTab(IWebDriver driver, String oldTab)
+        {
+            driver.Close();
+            driver.SwitchTo().Window(oldTab);
         }
     }
 }

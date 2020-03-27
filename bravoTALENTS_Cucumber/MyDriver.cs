@@ -1,5 +1,6 @@
 ﻿using bravoTALENTS_Cucumber.PageObject;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,8 @@ namespace bravoTALENTS_Cucumber
     {
         public static IWebDriver driver;
         public static WebDriverWait wait;
+        public static Actions actions;
+
 
         //public static bool IsElementVisible(IWebDriver driver, By element)
         //{
