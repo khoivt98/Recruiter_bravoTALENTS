@@ -184,6 +184,7 @@
     <Compile Include="PageObject\JobsPage\JobPO.cs" />
     <Compile Include="PageObject\LoginPage\LoginPO.cs" />
     <Compile Include="PageObject\TemplatePage\TemplateDetailPO.cs" />
+    <Compile Include="PageObject\TemplatePage\TemplateListPO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StepsDefinition\CandidatePage\CreateCandidateStepDefinition.cs" />
@@ -205,6 +206,8 @@
     <Compile Include="StepsDefinition\JobsPage\RevertJobDiscriptionSteps.cs" />
     <Compile Include="StepsDefinition\JobsPage\SaveJobAsTemplateSteps.cs" />
     <Compile Include="StepsDefinition\LoginPage\LoginSteps.cs" />
+    <Compile Include="StepsDefinition\TemplatePage\CreateTemplateSteps.cs" />
+    <Compile Include="StepsDefinition\TemplatePage\DeleteTemplateSteps.cs" />
     <Compile Include="Utility.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -216,6 +219,8 @@
     <None Include="Features\JobsPage\JobOverview.feature" />
     <None Include="Features\JobsPage\MainFlow.feature" />
     <None Include="Features\LoginPage\Login.feature" />
+    <None Include="Features\TemplatePage\CreateTemplate.feature" />
+    <None Include="Features\TemplatePage\DeleteTemplate.feature" />
     <None Include="license" />
     <None Include="packages.config" />
     <None Include="Features\JobsPage\CreateJob.feature" />

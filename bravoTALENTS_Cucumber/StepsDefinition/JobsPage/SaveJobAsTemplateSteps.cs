@@ -36,6 +36,7 @@ namespace bravoTALENTS_Cucumber.StepsDefinition.JobsPage
             MyDriver.wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.JobDetailPO.linkNavigateToTemplateScreen));
             jobTitleInJobScreen = BasePage.JobDetailPO.theJobTitle.Text;
             BasePage.JobDetailPO.linkNavigateToTemplateScreen.Click();
+            Thread.Sleep(1000);
         }
 
         [Then(@"I navigate to template detail screen")]
