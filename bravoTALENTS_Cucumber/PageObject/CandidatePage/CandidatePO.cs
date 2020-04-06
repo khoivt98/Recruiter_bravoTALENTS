@@ -45,7 +45,7 @@ namespace bravoTALENTS_Cucumber.PageObject.CandidatePage
         [FindsBy(How = How.Id, Using = "file")]
         public IWebElement fieldUploadFile { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = ".candidate-import__input-radio:nth-child(1)")]
+        [FindsBy(How = How.CssSelector, Using = ".candidate-import__checkmark:nth-child(2)")]
         public IWebElement optionSkipCandidate { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".candidate-import__button-container .button--primary")]

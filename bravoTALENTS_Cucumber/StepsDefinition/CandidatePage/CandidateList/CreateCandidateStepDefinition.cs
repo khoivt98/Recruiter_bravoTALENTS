@@ -51,6 +51,7 @@ namespace bravoTALENTS_Cucumber.StepsDefinition.CandidatePage
             BasePage.CandidatePO.fieldFirstName.Click();
             MyDriver.wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//button[contains(.,'Save')]")));
             BasePage.CandidatePO.btnSaveCandidate.Click();
+            Thread.Sleep(4000);
             MyDriver.wait.Until(ExpectedConditions.TextToBePresentInElement(BasePage.CandidatePO.firstCandidateAppliedDate, "just now"));
         }
 
@@ -84,7 +85,7 @@ namespace bravoTALENTS_Cucumber.StepsDefinition.CandidatePage
 
         [Given(@"I import the CSV file from my computer")]
         public void GivenIImportTheCSVFileFromMyComputer()
-        {
+        {          
             BasePage.CandidatePO.fieldUploadFile.SendKeys("C:/Projects/Recruiter_bravoTALENTS/bravoTALENTS_Cucumber/Data/Sample 50.csv");
             BasePage.CandidatePO.optionSkipCandidate.Click();
             //Wait for button Import is enabled

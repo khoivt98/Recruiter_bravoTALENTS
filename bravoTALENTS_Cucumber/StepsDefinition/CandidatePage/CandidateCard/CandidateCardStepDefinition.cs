@@ -47,7 +47,7 @@ namespace bravoTALENTS_Cucumber.StepsDefinition.CandidatePage
         [Then(@"the info of candidate should be updated (.*) and (.*) and (.*) and (.*)")]
         public void ThenTheInfoOfCandidateShouldBeUpdatedAndMaleAndSingleAndHCM(string mobile, string gender, string martialStatus, string city)
         {
-            MyDriver.wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(".primary-list__item:nth-child(5) span")));
+            MyDriver.wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(".primary-list__item:nth-child(2) span")));
             Assert.Multiple(() =>
             {
                 Assert.AreEqual(mobile, BasePage.CandidateCardPO.textMobile.Text);
