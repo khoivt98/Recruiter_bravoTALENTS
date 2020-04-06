@@ -49,5 +49,10 @@ namespace bravoTALENTS_Cucumber.PageObject
         {
             get { return GetPage<TemplateDetailPO>(); }
         }
+
+        public static TemplateListPO TemplateListPO
+        {
+            get { return GetPage<TemplateListPO>(); }
+        }
     }
 }
