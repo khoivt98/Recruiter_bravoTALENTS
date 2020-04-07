@@ -41,13 +41,13 @@ namespace bravoTALENTS_Cucumber.PageObject.TemplatePage
         public IWebElement templateTypeDropdown { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//div[@title = 'Job Details']")]
-        public IWebElement jobDetail { get; set; }
+        public IWebElement jobDetailType { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//div[@title = 'Email']")]
-        public IWebElement email { get; set; }
+        public IWebElement emailType { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//div[@title = 'Interview Prep']")]
-        public IWebElement interviewPrep { get; set; }
+        public IWebElement interviewPrepType { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".template-creation__submit .button--primary")]
         public IWebElement createButtonInCreateTemplatePanel { get; set; }
@@ -74,15 +74,6 @@ namespace bravoTALENTS_Cucumber.PageObject.TemplatePage
 
         [FindsBy(How = How.CssSelector, Using = "li.template-list-action__item:nth-child(3)")]
         public IWebElement publishTemplateButtonInQuickCard { get; set; }
-
-        [FindsBy(How = How.CssSelector, Using = "li.template-list-action__item:nth-child(4)")]
-        public IWebElement duplicatedTemplateButtonInQuickQcard { get; set; }
-
-        [FindsBy(How = How.CssSelector, Using = "li.template-list-action__item:nth-child(5)")]
-        public IWebElement deleteTemplateButtonInQuickCard { get; set; }
-
-        [FindsBy(How = How.CssSelector, Using = "li.template-list-action__item:nth-child(3)")]
-        public IWebElement undoDeleteButonInQuickCard { get; set; }
 
         //Template list
         [FindsBy(How = How.CssSelector, Using = ".template-content:nth-child(1) .checkbox-label")]
