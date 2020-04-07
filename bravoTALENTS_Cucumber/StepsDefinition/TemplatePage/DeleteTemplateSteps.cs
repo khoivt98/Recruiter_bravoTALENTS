@@ -61,6 +61,7 @@ namespace bravoTALENTS_Cucumber.StepsDefinition.TemplatePage
         [Then(@"The first template should be deleted")]
         public void ThenTheFirstTemplateShouldBeDeleted()
         {
+            //Check icon delete is displayed on the row
             Assert.IsTrue(Utility.isElementPresent(By.CssSelector("tr:nth-child(1) td.template-header__status-icon i")));
         }
 
@@ -75,15 +76,15 @@ namespace bravoTALENTS_Cucumber.StepsDefinition.TemplatePage
         [When(@"I click into the delete template button")]
         public void WhenIClickIntoTheDeleteTemplateButton()
         {
-            MyDriver.wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.TemplateListPO.deleteTemplateButtonInQuickCard));
-            BasePage.TemplateListPO.deleteTemplateButtonInQuickCard.Click();
+            MyDriver.wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.TemplateDetailPO.deleteTemplateButton));
+            BasePage.TemplateDetailPO.deleteTemplateButton.Click();
         }
 
         [Then(@"The template should be deleted")]
         public void ThenTheTemplateShouldBeDeleted()
         {
-            MyDriver.wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.TemplateListPO.undoDeleteButonInQuickCard));
-            Assert.IsTrue(BasePage.TemplateListPO.undoDeleteButonInQuickCard.Displayed);
+            MyDriver.wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.TemplateDetailPO.undoDeleteButton));
+            Assert.IsTrue(BasePage.TemplateDetailPO.undoDeleteButton.Displayed);
         }
 
 

@@ -45,8 +45,8 @@ namespace bravoTALENTS_Cucumber.StepsDefinition.TemplatePage
             MyDriver.wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.TemplateListPO.templateTypeDropdown));
             BasePage.TemplateListPO.templateTypeDropdown.Click();
 
-            MyDriver.wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.TemplateListPO.jobDetail));
-            BasePage.TemplateListPO.jobDetail.Click();
+            MyDriver.wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.TemplateListPO.jobDetailType));
+            BasePage.TemplateListPO.jobDetailType.Click();
         }
 
         [Then(@"The job template is created")]
@@ -72,8 +72,8 @@ namespace bravoTALENTS_Cucumber.StepsDefinition.TemplatePage
             MyDriver.wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.TemplateListPO.templateTypeDropdown));
             BasePage.TemplateListPO.templateTypeDropdown.Click();
 
-            MyDriver.wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.TemplateListPO.email));
-            BasePage.TemplateListPO.email.Click();
+            MyDriver.wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.TemplateListPO.emailType));
+            BasePage.TemplateListPO.emailType.Click();
         }
 
         [Then(@"The email template is created")]
@@ -99,8 +99,8 @@ namespace bravoTALENTS_Cucumber.StepsDefinition.TemplatePage
             MyDriver.wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.TemplateListPO.templateTypeDropdown));
             BasePage.TemplateListPO.templateTypeDropdown.Click();
 
-            MyDriver.wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.TemplateListPO.interviewPrep));
-            BasePage.TemplateListPO.interviewPrep.Click();
+            MyDriver.wait.Until(ExpectedConditions.ElementToBeClickable(BasePage.TemplateListPO.interviewPrepType));
+            BasePage.TemplateListPO.interviewPrepType.Click();
         }
 
         [Then(@"The interview prep template is created")]
